@@ -15,6 +15,9 @@ class Home extends React.Component {
         this.today = new Date();
     }
 
+    onDayClick = (e, day) => {
+        alert(day);
+    }
 
     render() {
 
@@ -23,7 +26,9 @@ class Home extends React.Component {
 
                 <h1>Home</h1>
 
-                <Calender style={style} />
+                <Calender style={style}
+                    width="302px"
+                    onDayClick={(e, day) => this.onDayClick(e, day)} />
 
                 <table>
 
