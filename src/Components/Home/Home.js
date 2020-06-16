@@ -30,31 +30,6 @@ class Home extends React.Component {
                     width="302px"
                     onDayClick={(e, day) => this.onDayClick(e, day)} />
 
-                <table>
-
-                    <thead>
-
-                        <tr>
-                            <th>Sunday</th>
-                            <th>Monday</th>
-                            <th>Tuesday</th>
-                            <th>Wednesday</th>
-                            <th>Thursday</th>
-                            <th>Friday</th>
-                            <th>Saturday</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-
-                    </tbody>
-                </table>
-
-                <div>
-                    <button>Previous</button>
-                    <button>Next</button>
-                </div>
-
             </div>
         );
     }

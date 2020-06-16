@@ -83,7 +83,7 @@ export default class Calender extends React.Component {
         let popup = props.data.map((data) => {
             return (
                 <div key={data}>
-                    <a href="#" onClick={(e) => { this.onSelectChange(e, data) }}>{data}</a>
+                    <a href="" onClick={(e) => { this.onSelectChange(e, data) }}>{data}</a>
                 </div>
             );
         });
@@ -160,7 +160,7 @@ export default class Calender extends React.Component {
 
         let weekdays = this.weekDays.map((day) => {
             return (
-                <td key={day} className="weekday">{day}</td>
+                <th key={day} className="weekday">{day}</th>
             )
         });
 
@@ -172,7 +172,7 @@ export default class Calender extends React.Component {
 
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
-            let className = (d == this.currentDay() ? "day current-day" : "day");
+            let className = (d === this.currentDay() ? "day current-day" : "day");
             daysInMonth.push(
                 <td key={d} className={className}>
                     <span onClick={(e) => { this.onDayClick(e, d) }} >{d}</span>
@@ -196,7 +196,7 @@ export default class Calender extends React.Component {
                 cells.push(row);
             }
 
-            if (i == totalSlots.length - 1) {
+            if (i === totalSlots.length - 1) {
                 let insertRow = cells.slice();
                 rows.push(insertRow);
 
@@ -205,6 +205,7 @@ export default class Calender extends React.Component {
 
         let trElements = rows.map((d, i) => {
             return (
+
                 <tr key={i * 10}>
                     {d}
                 </tr>
@@ -215,33 +216,34 @@ export default class Calender extends React.Component {
 
         return (
             <div className="cal-container">
-                <h2>Hi</h2>
+                <h2>Calender</h2>
 
                 <table className="calender">
                     <thead>
                         <tr className="calender-header">
-                            <td colSpan="5">
+                            <th colSpan="5">
                                 <this.MonthNav />
                                 {" "}
                                 <this.YearNav />
-                            </td>
-                            <td colSpan="2" className="nav-month">
+                            </th>
+                            <th colSpan="2" className="nav-month">
                                 <i className="prev fa fa-fw fa-chevron left" onClick={(e) => { this.prevMonth() }} >
                                     {"<-"}
                                 </i>
-                            </td>
+                            </th>
 
-                            <td colSpan="2" className="nav-month">
+                            <th colSpan="2" className="nav-month">
                                 <i className="prev fa fa-fw fa-chevron right" onClick={(e) => { this.nextMonth() }} >
                                     {"->"}
                                 </i>
-                            </td>
-                            <th></th>
+                            </th>
                         </tr>
+
+                        <tr>{weekdays}</tr>
                     </thead>
 
                     <tbody>
-                        <tr>{weekdays}</tr>
+
 
                         {trElements}
 
