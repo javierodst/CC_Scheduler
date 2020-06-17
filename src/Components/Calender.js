@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
+import { Link, withRouter } from 'react-router-dom';
 
-export default class Calender extends React.Component {
+class Calender extends React.Component {
 
     constructor(props) {
         super(props);
@@ -156,6 +157,7 @@ export default class Calender extends React.Component {
         this.props.onDayClick && this.props.onDayClick(e, day);
     }
 
+
     render() {
 
         let weekdays = this.weekDays.map((day) => {
@@ -205,10 +207,10 @@ export default class Calender extends React.Component {
 
         let trElements = rows.map((d, i) => {
             return (
-
-                <tr key={i * 10}>
+                <tr key={i * 10} >
                     {d}
                 </tr>
+
             )
         });
 
@@ -253,3 +255,5 @@ export default class Calender extends React.Component {
         );
     }
 }
+
+export default withRouter(Calender);
