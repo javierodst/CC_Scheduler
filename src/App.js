@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Schedule from './Components/Schedule.js';
 import EmployeeCreate from './Components/Employee/EmployeeCreate.js'
+import EmployeeEdit from './Components/Employee/EmployeeEdit.js';
 import './App.css';
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
 
 
         <Route exact path='/employee/add' render={() => (<EmployeeCreate />)} />
+        <Route exact path='/employee/edit/:id' render={(props) => (<EmployeeEdit id={props.match.params.id} />)} />
+
 
 
         <Route render={() => (<h1>Page Not Found</h1>)} />

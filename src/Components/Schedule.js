@@ -1,6 +1,8 @@
 import React from 'react';
 import EmployeeList from './Employee/EmployeeList.js';
 
+import '../Styling/Schedule.css';
+
 import { Link, withRouter } from 'react-router-dom';
 class Schedule extends React.Component {
 
@@ -37,7 +39,7 @@ class Schedule extends React.Component {
     render() {
 
         return (
-            <div>
+            <div className="schedule-main">
                 <h1>Schedule</h1>
 
                 <table>
@@ -61,12 +63,14 @@ class Schedule extends React.Component {
 
                         <EmployeeList employees={this.state.employees} />
 
+
                     </tbody>
 
-                    <Link to={`/employee/add`}>Add</Link>
-
-
                 </table>
+
+                <br />
+
+                <Link className="btn" to={`/employee/add`}>Add Employee</Link>
             </div>
         );
 

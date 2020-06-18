@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Link, withRouter } from "react-router-dom";
 
+import ScheduleDays from '../ScheduleDays.js';
+
 class EmployeeList extends React.Component {
     constructor(props) {
         super(props);
@@ -17,12 +19,17 @@ class EmployeeList extends React.Component {
     };
 
     render() {
-        const employees = this.props.employees.map(({ name, employeeId }) => {
+        const employees = this.props.employees.map(({ _id, name, employeeId, weekSchedule }) => {
 
             return (
+
                 <tr key={employeeId}>
-                    <td>{name}</td>
+                    <td>{name} <Link className="btn-edit" to={`/employee/edit/${_id}`}>Edit</Link></td>
+                    <ScheduleDays days={weekSchedule} />
+
+
                 </tr >
+
 
             );
         })

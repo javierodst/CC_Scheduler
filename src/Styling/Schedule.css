@@ -1,0 +1,48 @@
+.schedule-main{
+    width: 100%;
+    margin: auto;
+}
+
+table{
+    width: 90%;
+    margin: auto;
+    border: 2px solid black
+}
+
+thead{
+    background-color: grey;
+}
+
+th{
+    padding: .5em 0.2em;
+}
+
+tbody{
+    background-color: green;
+}
+
+td{
+    padding: 1em;
+}
+
+.btn{
+    padding: 5px 20px 5px 20px;
+    border: 0.5px solid black ;
+    border-radius: 2px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+.btn-edit{
+    border: 0.5px black solid;
+    padding: 1px 5px;
+    color:black;
+    font-weight: bold;
+    background-color: rgb(218, 189, 64);
+    text-decoration: none;
+}
+
+.btn-edit:hover{
+    background-color: rgb(136, 113, 12);
+}
