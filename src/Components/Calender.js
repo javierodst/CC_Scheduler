@@ -1,6 +1,8 @@
+
 import React from 'react';
 import moment from 'moment';
-import { Link, withRouter } from 'react-router-dom';
+import { Redirect, Link, withRouter } from 'react-router-dom';
+import '../Styling/Calender.css'
 
 
 class Calender extends React.Component {
@@ -158,6 +160,18 @@ class Calender extends React.Component {
         this.props.onDayClick && this.props.onDayClick(e, day);
     }
 
+    enterWeekDay = (e) => {
+        console.log("Mouse entered");
+        const elem = e.target
+        elem.style.background = "red";
+    }
+
+    weekClicked = (e) => {
+        console.log(e.target.object)
+        // this.props.history.push(`/schedule/${e.target}`)
+
+    }
+
 
     render() {
 
@@ -206,9 +220,11 @@ class Calender extends React.Component {
             }
         });
 
+
+
         let trElements = rows.map((d, i) => {
             return (
-                <tr key={i * 10} >
+                <tr key={i * 10} onMouseEnter={this.enterWeekDay} onClick={this.weekClicked}>
                     {d}
                 </tr>
 
@@ -242,11 +258,10 @@ class Calender extends React.Component {
                             </th>
                         </tr>
 
-                        <tr>{weekdays}</tr>
+                        <tr className="weekdays">{weekdays}</tr>
                     </thead>
 
-                    <tbody>
-
+                    <tbody className="calender-body" >
 
                         {trElements}
 

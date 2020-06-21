@@ -5,7 +5,8 @@ import Home from './Components/Home/Home';
 import Schedule from './Components/Schedule.js';
 import EmployeeCreate from './Components/Employee/EmployeeCreate.js'
 import EmployeeEdit from './Components/Employee/EmployeeEdit.js';
-import './App.css';
+import './Styling/App.css';
+
 
 function App() {
   return (

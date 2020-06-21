@@ -3,28 +3,26 @@
     margin: auto;
 }
 
-table{
+.schedule-main table{
     width: 90%;
     margin: auto;
     border: 4px solid black;
     border-collapse: collapse;
 }
 
-thead{
+.schedule-main thead{
     background-color: grey;
 }
 
-th{
+.schedule-main th{
     padding: .5em 0.2em;
 }
 
-tbody{
-    background-color: green;
-}
 
-td{
+.schedule-main td{
     padding: 1em;
     border: 1px solid black;
+    background-color: green;
 }
 
 .btn{
