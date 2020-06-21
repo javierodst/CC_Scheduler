@@ -13,13 +13,12 @@ class ScheduleDays extends React.Component {
     }
 
     render() {
-
-        const days = this.props.days.map(({ daysWorking }) => {
-            console.log(daysWorking);
+        /* OLD IF NEEDED
+        const days = this.props.days.map(({ i, daysWorking }) => {
 
             const dayWorking = daysWorking.map(({ startTime, endTime }) => {
                 return (
-                    <td>
+                    <td key={i * 10}>
                         {startTime} - {endTime}
                     </td>
                 );
@@ -27,6 +26,16 @@ class ScheduleDays extends React.Component {
 
             return dayWorking;
         })
+        */
+
+        const days = this.props.days.map(({ startTime, endTime }) => {
+            return (
+                <td key={startTime * 10}>
+                    {startTime} - {endTime}
+                </td>
+            );
+        })
+
 
 
         return (

@@ -19,13 +19,21 @@ class EmployeeList extends React.Component {
     };
 
     render() {
-        const employees = this.props.employees.map(({ _id, name, employeeId, weekSchedule }) => {
+        const employees = this.props.employees.map(({ _id, name, employeeId, weekSchedule, weekId }) => {
+            let weeks = weekSchedule;
+            weekSchedule.map((w) => {
+                if (w.weekId == this.props.match.params.id) {
+                    console.log(w.daysWorking);
+                    weeks = w.daysWorking;
+                }
+            });
+
 
             return (
 
                 <tr key={employeeId}>
                     <td>{name} <Link className="btn-edit" to={`/employee/edit/${_id}`}>Edit</Link></td>
-                    <ScheduleDays days={weekSchedule} />
+                    <ScheduleDays days={weeks} />
 
 
                 </tr >

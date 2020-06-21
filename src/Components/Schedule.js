@@ -29,11 +29,35 @@ class Schedule extends React.Component {
                 }
             })
             .then(responseData => {
-                this.setState({ employees: responseData });
+                //this.setState({ employees: responseData });
+                //console.log("WeekID: " + 1);
+                let employees = [];
+                responseData.map((e) => {
+
+
+                    e.weekSchedule.map((emp) => {
+                        //console.log(emp);
+                        if (emp.weekId === this.props.match.params.id) {
+                            //console.log(emp.weekId);
+                            employees.push(e);
+                        }
+
+                        else {
+
+                        }
+                    }
+
+                    )
+
+                })
+
+                this.setState({ employees: employees });
             })
             .catch(error => {
                 console.log(error);
             });
+
+
     }
 
     render() {

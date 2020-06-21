@@ -30,6 +30,10 @@ class Calender extends React.Component {
         return this.state.dateContext.format("Y");
     }
 
+    monthNum = () => {
+        return parseInt(this.state.dateContext.format("M"));
+    }
+
     month = () => {
         return this.state.dateContext.format("MMMM");
     }
@@ -160,15 +164,12 @@ class Calender extends React.Component {
         this.props.onDayClick && this.props.onDayClick(e, day);
     }
 
-    enterWeekDay = (e) => {
-        console.log("Mouse entered");
-        const elem = e.target
-        elem.style.background = "red";
-    }
 
-    weekClicked = (e) => {
-        console.log(e.target.object)
-        // this.props.history.push(`/schedule/${e.target}`)
+    weekClicked = (e, i) => {
+        let weekId = i + "-" + this.monthNum() + "-" + parseInt(this.year())
+        //console.log(weekId);
+        //console.log(i, this.monthNum(), parseInt(this.year()));
+        this.props.history.push(`/schedule/${weekId}`)
 
     }
 
@@ -224,7 +225,7 @@ class Calender extends React.Component {
 
         let trElements = rows.map((d, i) => {
             return (
-                <tr key={i * 10} onMouseEnter={this.enterWeekDay} onClick={this.weekClicked}>
+                <tr key={i * 10} className="calender-week-row" onClick={(e) => this.weekClicked(e, i)}>
                     {d}
                 </tr>
 

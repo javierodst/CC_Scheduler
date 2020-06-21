@@ -35,3 +35,7 @@
     padding: 1em;
     border: 1px solid black;
 }
+
+.calender-week-row:hover{
+    background-color: wheat;
+}
