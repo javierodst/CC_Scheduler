@@ -22,7 +22,7 @@ function App() {
         <Route exact path='/schedule/edit/:id' render={(props) => (<Schedule id={props.match.params.id} />)} />
 
 
-        <Route exact path='/employee/add' render={() => (<EmployeeCreate />)} />
+        <Route exact path='/employee/add/:date' render={(props) => (<EmployeeCreate date={props.match.params.date} />)} />
         <Route exact path='/employee/edit/:id' render={(props) => (<EmployeeEdit id={props.match.params.id} />)} />
 
 

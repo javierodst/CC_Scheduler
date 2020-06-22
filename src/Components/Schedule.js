@@ -94,7 +94,7 @@ class Schedule extends React.Component {
 
                 <br />
 
-                <Link className="btn" to={`/employee/add`}>Add Employee</Link>
+                <Link className="btn" to={`/employee/add/${this.props.match.params.id}`}>Add Employee</Link>
             </div>
         );
 
