@@ -1,10 +1,12 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class ScheduleDays extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {};
 
     }
 
@@ -28,9 +30,9 @@ class ScheduleDays extends React.Component {
         })
         */
 
-        const days = this.props.days.map(({ startTime, endTime }) => {
+        const days = this.props.days.map(({ startTime, endTime, _id }) => {
             return (
-                <td key={startTime * 10}>
+                <td key={_id}>
                     {startTime} - {endTime}
                 </td>
             );

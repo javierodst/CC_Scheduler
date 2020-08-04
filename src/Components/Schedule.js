@@ -45,10 +45,12 @@ class Schedule extends React.Component {
                         else {
 
                         }
+
+                        return emp;
                     }
 
                     )
-
+                    return e;
                 })
 
                 this.setState({ employees: employees });

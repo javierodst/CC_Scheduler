@@ -22,10 +22,12 @@ class EmployeeList extends React.Component {
         const employees = this.props.employees.map(({ _id, name, employeeId, weekSchedule, weekId }) => {
             let weeks = weekSchedule;
             weekSchedule.map((w) => {
-                if (w.weekId == this.props.match.params.id) {
-                    console.log(w.daysWorking);
+                if (w.weekId === this.props.match.params.id) {
+                    //console.log(w.daysWorking);
                     weeks = w.daysWorking;
                 }
+
+                return w;
             });
 
 

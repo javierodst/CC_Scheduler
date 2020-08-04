@@ -125,7 +125,7 @@ class EmployeeCreate extends React.Component {
                         <label className='control-label col-md-2'>Status</label>
                         <div className="col-md-6">
 
-                            <select name="status" className="form-control" value={this.state.value} ref={(i) => { this.input = i }} onChange={this.handleChange} >
+                            <select name="status" className="form-control" defaultValue={this.state.value} ref={(i) => { this.input = i }} onChange={this.handleChange} >
                                 <option value="Working">Working</option>
                                 <option value="On Leave">On Leave</option>
 
@@ -137,7 +137,7 @@ class EmployeeCreate extends React.Component {
                     <div className="form-group">
                         <label className='control-label col-md-2'>Week ID</label>
                         <div className="col-md-6">
-                            <input name="weekId" className="form-control" ref={(i) => { this.input = i }} value={this.props.date} />
+                            <input name="weekId" className="form-control" ref={(i) => { this.input = i }} defaultValue={this.props.date} />
                         </div>
                     </div>
 
