@@ -27,13 +27,13 @@ function App() {
       <Switch>
         <Route exact path='/' render={() => <LandingPage />} />
 
-        <ProtectedRoute exact path='/home' component={Home} />
-        <Route exact path='/schedule/:id' render={(props) => (<Schedule id={props.match.params.id} />)} />
-        <Route exact path='/schedule/edit/:id' render={(props) => (<Schedule id={props.match.params.id} />)} />
+        <ProtectedRoute exact path='/home' render={() => <Home />} />
+        <ProtectedRoute exact path='/schedule/:id' render={(props) => (<Schedule id={props.match.params.id} />)} />
+        <ProtectedRoute exact path='/schedule/edit/:id' render={(props) => (<Schedule id={props.match.params.id} />)} />
 
 
-        <Route exact path='/employee/add/:date' render={(props) => (<EmployeeCreate date={props.match.params.date} />)} />
-        <Route exact path='/employee/edit/:id' render={(props) => (<EmployeeEdit id={props.match.params.id} />)} />
+        <ProtectedRoute exact path='/employee/add/:date' render={(props) => (<EmployeeCreate date={props.match.params.date} />)} />
+        <ProtectedRoute exact path='/employee/edit/:id' render={(props) => (<EmployeeEdit id={props.match.params.id} />)} />
 
 
 

@@ -13,7 +13,8 @@ class LandingPage extends React.Component {
         return (
             <div>
                 <h1>Landing Page</h1>
-
+                <label>Password:</label>
+                <input type="password"></input>
                 <button onClick={() => {
                     auth.login(() => { this.props.history.push("/home") })
                 }}>Login</button>
