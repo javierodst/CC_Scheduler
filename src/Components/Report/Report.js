@@ -1,7 +1,10 @@
 import React from 'react';
 import './Report.css';
 import SQLPIC from './SQL_Diagram.jpg';
-import KNOWNPIC from './KnownVulnerabilities_Diagram.jpg';
+import KNOWNPIC from './KnownVulnerabilities_Diagram.png';
+import SQL_EX from './SQL_Example.jpg';
+import SCAN_EX from './Scanning_Ex.png';
+import SCAN_EX2 from './Scanning_Ex2.png';
 class Report extends React.Component {
 
 
@@ -184,6 +187,135 @@ class Report extends React.Component {
                     <p>In this diagram the attacker is finds a website they may have a vulnerability. Once a vulnerability is found he uses it to request a specific file and returns it to him. The attacker should not be able to access any file they want; the website and server should request his credentials and determine if he should have access to it. The vulnerable component let him by pass the authentication and authorization of the website and the attacker was able to freely download the file.</p>
                 </div>
 
+
+                <div className="box">
+                    <strong>Protocal/Service Description</strong>
+
+                    <p>For this exploit, we will be using Burp Suite as our tool for generating CSRF PoC (This feature is not available for the Community version). Burp Suite is a platform that intercepts and keeps a history of HTTP requests made by your browser, among other things. This feature will help us identify the source, the client, and the type of request being sent. </p>
+
+                    <strong>How the exploit works/ Description and diagram of the attack </strong>
+
+                    <strong>Exploit 1: SQL Injection</strong>
+
+                    <img src={SQL_EX} />
+
+                    <p>This SQL code is designed to pull up the records of the specified username from its table of users. However, if the "userName" variable is crafted in a specific way by a malicious user, the SQL statement may do more than the code author intended. For example, setting the "userName" variable as:  ' OR '1'='1' -- renders one of the following SQL statements by the parent language: SELECT * FROM users WHERE name = '' OR '1'='1' -- '; If this code were to be used in an authentication procedure then this example could be used to force the selection of every data field (*) from all users rather than from one specific user name as the coder intended, because the evaluation of '1'='1' is always true.</p>
+                </div>
+
+                <div className="box">
+                    <strong>Exploit 2: Broken Access Control/Cross Site Request Forgery (CSRF)</strong>
+
+                    <p>Reconnaissance</p>
+
+                    <p>To use Burp Suite with my browser of choice (Firefox), I ran the application, and added proxy listeners and certificate required. This was to allow it to intercept all HTTP requests from the browser. </p>
+
+                    <p>Scanning</p>
+
+                    <p>Next, as the platform runs in the background, a user from the same network visits the Juice Shop website and submits their email and password in the login form. All requests is logged in Burp Suite and accessed through the HTTP history tab.</p>
+
+                    <img src={SCAN_EX} />
+
+                    <p>The email and password field are visible here as its being sent as a POST request to the server in form of a JSON. This is bad practice and no real world website today would do this. </p>
+
+                    <p>The next step in the process would be to use the intercepted to generate a CSRF PoC, but this feature is only available for the paid version which we did not have access to.</p>
+
+                    <img src={SCAN_EX2} />
+
+                </div>
+
+                <div className="box">
+
+                    <strong>Exploit 3: Components with Known Vulnerabilities</strong>
+
+                    <p>The exploit works by taking advantage of vulnerable software that allows the attacker to gain access to information they should not be able to or even manipulate data. Outdated software can be the cause of this since exploits could have been found that have been patched in newer updates.</p>
+
+                    <p>The attacker can identify libraries or a framework that has a vulnerability. IF the component is deep inside the application then it becomes harder for the attacker to identify. To insure you find components it is easier to keep them at the top layer of the App. If the attacker gains access to a component it may give him access to more attacks such as SQL injections.</p>
+                </div>
+
+                <div className="box">
+
+                    <strong>Signature of the attack</strong>
+                    <br />
+                    <strong>Exploit 3: Components with Known Vulnerabilities</strong>
+
+                    <p>Depending on what the attack was it may leave a signature. For example, of the signature turned out to be a SQL Injection, you may be able to detect data being stolen at a certain time from no users or data being modified that should not be modified.</p>
+
+                    <p>It really depends on what type of vulnerability your application has to find out what has happened. This is what makes vulnerabilities very hard to detect because you may think it is linked to something where it is a component in your application.</p>
+
+                </div>
+
+                <div className="box">
+                    <strong>How to protect against it</strong>
+                    <br />
+                    <strong>Explot 1: SQL Injection</strong>
+
+                    <p>To prevent this attack escaping characters that have special meaning in SQL. Simply replacing single quotes with two single quotes will stop this attack from executing.</p>
+
+                    <strong>Exploit 2: Broken Access Control/Cross Site Request Forgery (CSRF)</strong>
+
+                    <p>To fix this vulnerability, email and password credentials must be secured before being sent to the server. Sending an unencrypted JSON object containing such sensitive information would allow for easy snooping. This is an easy issue to solve, one of which is by applying a hashing algorithm first and collected the hashed data instead.</p>
+
+                    <p>The issue we were really trying to tackle was cross site request forgery, which if the snooper were to send a request taking advantage of the user’s authentication, it would not succeed  through implementation adding token parameters and third party resource restrictions. Most reputable web application have these majors in place and the average user would not encounter this issue (for the most part).</p>
+
+                    <p>Principle of Least Privilege</p>
+
+                    <p>The vendor would fix this issue by using principle of least privilege, which means the starting implementation should restrict all functionalities, and then add permissions to access or perform the task required.[6] </p>
+
+                    <strong>Exploit 3: Components with Known Vulnerabilities</strong>
+
+                    <p>As a user, keep your device up to date and ensure the software you are using is up to date. As a programmer ensure that the code you are using is not have known vulnerabilities, if so send out a patch as soon as possible to ensure users are safe.</p>
+                </div>
+
+                <h3>Section 3: Security Policy</h3>
+
+                <div className="box">
+
+                    <strong>Exploit 1: SQL Injection</strong>
+
+                    <p>The main security policy in order to prevent SQL injection would be at coding level. Security must be baked into the Software Development lifecycle ensuring developers are aware of the risks associated with the code they write. Sanitizing code using methods such as escaping characters and parameterized statements will help insure injection attacks are thwarted.</p>
+
+
+                    <strong>Exploit 2: Broken Access Control/Cross Site Request Forgery (CSRF)</strong>
+
+                    <p>There are several security policies that can be implemented to prevent CSRF attacks.</p>
+
+                    <div className="report-list">
+
+                        <ul>
+                            <li>Server should not send unencrypted user data through JSON requests.</li>
+
+                            <li>Server should require per-session or per-request tokens as a way to verify the request is made from the original client.[4] These tokens should not be transmitted using cookies and using JavaScript instead, and also implement preventative measures to make sure that the token is not leaked in the browser history or log files. [4] Furthermore, hashing the token with a secret salt is usually prefer over key encryption as it takes less resources.</li>
+
+                            <li>Using frameworks to build the web application with built-in CSRF protection such as .NET that automatically adds tokens to resources.</li>
+
+                            <li>Implementing the double submit cookie method that sends a random value in a cookie and as a request parameter. [4] The cookie value is generated when the user visits the application and is unique to their machine. This value should be required for every single request made, thus adding another layer of protection. </li>
+
+                        </ul>
+
+                    </div>
+
+                    <strong>Exploit 3: Components with Known Vulnerabilities</strong>
+
+                    <p>You should have an internal security policy that will allow you to better protect company from having vulnerable components, such as:</p>
+
+                    <div className="report-list">
+                        <ul>
+
+                            <li>Ensuring that components are safe, and no known vulnerabilities are present when coding the application</li>
+
+                            <li>Periodically scan the application using scanner tools that can detect components with vulnerabilities</li>
+
+                            <li>If a vulnerability is made public or found ensure that a patch is set up as soon as possible to make sure your application is not vulnerable</li>
+
+                            <li>Use frameworks and libraries that are still and will be supported in the future</li>
+
+                            <li>Avoid using legacy frameworks as these will not be updated and in order to fix the vulnerability you will need to replace it making the patch take a longer time.</li>
+
+                        </ul>
+                    </div>
+
+
+                </div>
 
             </div>
 
