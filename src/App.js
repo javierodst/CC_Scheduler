@@ -7,10 +7,9 @@ import Home from './Components/Home/Home';
 import Schedule from './Components/Schedule.js';
 import EmployeeCreate from './Components/Employee/EmployeeCreate.js'
 import EmployeeEdit from './Components/Employee/EmployeeEdit.js';
+import Report from './Components/Report/Report.js';
 import { ProtectedRoute } from './protectedRoute';
 import './Styling/App.css';
-import auth from './auth.js';
-
 
 function App() {
   return (
@@ -25,7 +24,7 @@ function App() {
       </header>
 
       <Switch>
-        <Route exact path='/' render={() => <LandingPage />} />
+        <Route exact path='/' render={() => <Report />} />
 
         <ProtectedRoute exact path='/home' render={() => <Home />} />
         <ProtectedRoute exact path='/schedule/:id' render={(props) => (<Schedule id={props.match.params.id} />)} />
@@ -35,7 +34,7 @@ function App() {
         <ProtectedRoute exact path='/employee/add/:date' render={(props) => (<EmployeeCreate date={props.match.params.date} />)} />
         <ProtectedRoute exact path='/employee/edit/:id' render={(props) => (<EmployeeEdit id={props.match.params.id} />)} />
 
-
+        <ProtectedRoute exact path='/report' render={() => (<Report />)} />
 
         <Route render={() => (<h1>Page Not Found</h1>)} />
         <Route path="*" render={() => (<h1>Page Not Found</h1>)} />

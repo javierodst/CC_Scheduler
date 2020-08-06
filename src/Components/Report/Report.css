@@ -1,0 +1,24 @@
+.report{
+    margin: auto;
+    width: 100%;
+    text-align: left;
+    padding: 2em;
+}
+
+.report-list{
+    text-align: left;
+    width: 100%;
+}
+
+.box{
+    margin: auto;
+    background-color: grey;
+    padding: 1em;
+    border: 5px solid black;
+    
+    width: 70%;
+}
+.box img{
+    float: left;
+
+}

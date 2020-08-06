@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Authenticate from '../auth.js';
 import auth from '../auth.js';
 class LandingPage extends React.Component {
 
     constructor(props) {
         super(props);
+
     }
 
     render() {
