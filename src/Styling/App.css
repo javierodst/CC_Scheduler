@@ -70,3 +70,84 @@
 .links:hover{
   text-decoration: none;
 }
+
+
+@media screen and (max-width:760px){
+
+  .burger-nav{
+      display: block;
+      height: 40px;
+      width: 100%;
+      background:url(../../Images/burger.png) no-repeat 98% center;
+      background-color: #404040;
+      cursor: pointer;
+  }
+
+  .header-nav{
+      background-color: black;
+      width: 100%;
+  }
+
+  .header-nav ul{
+      display: block;
+      width: 100%;
+      height: 0px;
+      
+  }
+
+  .header-nav ul.open{
+      height: auto;
+      
+  }
+
+  .header-nav ul li{
+      width: 100%;
+      margin: 0;
+      border-right: none;
+      display: block;
+      border-bottom: 1px solid grey;
+      transition-duration: 0.5s;
+      
+  }
+
+  .header-nav ul.open{
+      animation: dropDown 1s forwards;
+
+  }
+
+  .header-nav ul li:last-child{
+      border-bottom: none;
+  }
+
+  .header-nav ul li .links{
+      padding: 10px 150px;
+  }
+
+  .header-nav ul li .links:active{
+      text-decoration: none;
+
+  }
+
+  @keyframes dropDown {
+
+      0%{
+          opacity: 0;
+          transform: translateY(-100%);
+          height: 0;
+      }
+
+      30%{
+          opacity: 0;
+      }
+
+      100%{
+
+          opacity: 1;
+          transform: translateY(0px);
+          height: 168px;
+
+      }
+      
+  }
+}
+
