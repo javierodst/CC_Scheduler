@@ -32,7 +32,7 @@ class Header extends React.Component {
 export default withRouter(Header);
 
 
-function HeaderNav() {
+function HeaderNav(props) {
     if (auth.isAuthenticated()) {
         return (
 
@@ -40,13 +40,14 @@ function HeaderNav() {
                 <div className="header-body">
 
                     <div className="header-nav">
+                        <a className="burger-nav"></a>
                         <ul>
                             <li><Link className="links" to="/home">Home</Link></li>
                             <li><Link className="links" to="/report">Report</Link></li>
                             <li><Link className="links" to="/video">Video</Link></li>
                             <li><Link className="links" onClick={() => {
                                 auth.logout(() => {
-                                    this.props.history.push("/");
+                                    props.history.push("/");
                                 });
                             }}
                             >Logout</Link></li>
