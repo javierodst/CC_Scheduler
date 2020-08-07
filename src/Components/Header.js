@@ -21,7 +21,7 @@ class Header extends React.Component {
         });
     }
 
-    header = () => {
+    HeaderNav = () => {
         if (auth.isAuthenticated()) {
             return (
 
@@ -57,10 +57,7 @@ class Header extends React.Component {
     }
     render() {
         return (
-            <div>
-                {this.header}
-            </div>
-
+            <HeaderNav />
         )
     }
 
