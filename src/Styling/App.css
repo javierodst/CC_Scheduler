@@ -78,7 +78,7 @@
       display: block;
       height: 40px;
       width: 100%;
-      background:url(../../Images/burger.png) no-repeat 98% center;
+      background:url(../Images/burger.png) no-repeat 98% center;
       background-color: #404040;
       cursor: pointer;
   }
