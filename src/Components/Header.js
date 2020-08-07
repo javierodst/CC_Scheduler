@@ -1,5 +1,6 @@
 import React from 'react';
 import auth from '../auth'
+import $ from 'jquery';
 import { Link, Route, Router, withRouter } from 'react-router-dom';
 
 class Header extends React.Component {
