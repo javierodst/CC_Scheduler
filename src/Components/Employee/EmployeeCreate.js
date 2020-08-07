@@ -14,7 +14,7 @@ class EmployeeCreate extends React.Component {
 
     }
 
-    url = "http://localhost:8080/api/employees";
+    url = "https://obscure-chamber-42272.herokuapp.com/api/employees";
 
 
     componentDidMount() {

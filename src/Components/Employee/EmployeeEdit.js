@@ -17,7 +17,7 @@ class EmployeeEdit extends React.Component {
 
     }
 
-    urlEmp = `http://localhost:8080/api/employees/${this.props.id}`
+    urlEmp = `https://obscure-chamber-42272.herokuapp.com/api/employees/${this.props.id}`
 
     componentDidMount(e) {
 
