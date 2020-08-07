@@ -58,7 +58,7 @@ class Header extends React.Component {
     render() {
         return (
             <div>
-                {header}
+                {this.header}
             </div>
 
         )
