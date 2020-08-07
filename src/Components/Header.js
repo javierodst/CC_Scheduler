@@ -1,7 +1,7 @@
 import React from 'react';
 import auth from '../auth'
 import $ from 'jquery';
-import { Link, Route, Router, withRouter } from 'react-router-dom';
+import { Link, Route, Router, withRouter, Redirect } from 'react-router-dom';
 
 class Header extends React.Component {
 
@@ -46,28 +46,26 @@ function HeaderNav(props) {
     if (auth.isAuthenticated()) {
         return (
 
-            <div>
-                <div className="header-body">
+            <div className="header-body">
 
-                    <div className="header-nav">
-                        <a className="burger-nav"></a>
-                        <ul>
-                            <li><Link className="links" to="/home">Home</Link></li>
-                            <li><Link className="links" to="/report">Report</Link></li>
-                            <li><Link className="links" to="/video">Video</Link></li>
-                            <li><Link className="links" onClick={() => {
-                                auth.logout(() => {
-                                    props.history.push("/");
-                                });
-                            }}
-                            >Logout</Link></li>
-                        </ul>
-
-                    </div>
+                <div className="header-nav">
+                    <a className="burger-nav"></a>
+                    <ul>
+                        <li><Link className="links" to="/home">Home</Link></li>
+                        <li><Link className="links" to="/report">Report</Link></li>
+                        <li><Link className="links" to="/video">Video</Link></li>
+                        <li><Link className="links" onClick={() => {
+                            auth.logout(() => {
+                                <Redirect to="/" />
+                            });
+                        }}
+                        >Logout</Link></li>
+                    </ul>
 
                 </div>
 
             </div>
+
         );
     }
 
