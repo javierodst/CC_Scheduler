@@ -1,14 +1,14 @@
 import React from 'react';
 import auth from '../auth'
 import $ from 'jquery';
-import { Link, Route, Router, withRouter, Redirect } from 'react-router-dom';
+import { Link, Route, Router, withRouter } from 'react-router-dom';
 
 class Header extends React.Component {
 
     constructor(props) {
         super(props);
     }
-
+    /*
     componentDidMount() {
         $(document).ready(function () {
             $(".burger-nav").on("click", function () {
@@ -20,7 +20,7 @@ class Header extends React.Component {
             });
         });
     }
-
+    */
     render() {
         return (
             <HeaderNav />
@@ -56,7 +56,7 @@ function HeaderNav(props) {
                         <li><Link className="links" to="/video">Video</Link></li>
                         <li><Link className="links" onClick={() => {
                             auth.logout(() => {
-                                <Redirect to="/" />
+                                props.history.push("/");
                             });
                         }}
                         >Logout</Link></li>
