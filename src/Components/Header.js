@@ -33,6 +33,16 @@ export default withRouter(Header);
 
 
 function HeaderNav(props) {
+    $(document).ready(function () {
+        $(".burger-nav").on("click", function () {
+            $(".header-nav ul").toggleClass("open");
+        });
+
+        $(".header-nav ul li .links").on("click", function () {
+            $(".header-nav ul").toggleClass("open");
+        });
+    });
+
     if (auth.isAuthenticated()) {
         return (
 
