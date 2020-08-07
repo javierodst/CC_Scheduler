@@ -35,7 +35,7 @@ class Header extends React.Component {
                                 <li><Link className="links" to="/video">Video</Link></li>
                                 <li><Link className="links" onClick={() => {
                                     auth.logout(() => {
-                                        props.history.push("/");
+                                        this.props.history.push("/");
                                     });
                                 }}
                                 >Logout</Link></li>
@@ -56,7 +56,12 @@ class Header extends React.Component {
         }
     }
     render() {
-        return ({ header })
+        return (
+            <div>
+                {header}
+            </div>
+
+        )
     }
 
 };
