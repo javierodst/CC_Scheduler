@@ -32,7 +32,7 @@ class Header extends React.Component {
 export default withRouter(Header);
 
 
-HeaderNav = () => {
+function HeaderNav() {
     if (auth.isAuthenticated()) {
         return (
 
