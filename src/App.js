@@ -24,7 +24,7 @@ function App() {
       </header>
 
       <Switch>
-        <Route exact path='/' render={() => <Report />} />
+        <Route exact path='/' render={() => <LandingPage />} />
 
         <ProtectedRoute exact path='/home' render={() => <Home />} />
         <ProtectedRoute exact path='/schedule/:id' render={(props) => (<Schedule id={props.match.params.id} />)} />

@@ -3,6 +3,7 @@
     width: 100%;
     text-align: left;
     padding: 2em;
+    background-color: white;
 }
 
 .report-list{
@@ -10,11 +11,16 @@
     width: 100%;
 }
 
+.report-header{
+    margin: auto;
+    width: 70%;
+}
+
 .box{
     margin: auto;
-    background-color: grey;
+    background-color: rgb(197, 197, 197);
     padding: 1em;
-    border: 5px solid black;
+    border: 3px solid rgb(51, 52, 53);
     
     width: 70%;
 }

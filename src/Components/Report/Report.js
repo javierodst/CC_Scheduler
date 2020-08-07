@@ -13,40 +13,44 @@ class Report extends React.Component {
         return (
 
             <div className="report">
-                <h1>Report</h1>
-                <div></div>
-                <h3>Section 1: Exploit Summary</h3>
 
-                <p>There 4 different specific exploits that will be covered in this report. The exploits will be demonstrated on a web application. The vulnerabilities will be given a brief description in the following segment:</p>
+                <div className="report-header">
+                    <h1>Report</h1>
 
-                <div className="report-list" >
-                    <ul>
-                        <li>
-                            <strong>Exploit 1: SQL injection</strong>
-
-                            <p>An injection attack specifically a SQL injection attack consists of malicious code that will expose a vulnerability capable of accessing the database layer of an application. SQL injection allows an attacker to spoof identity, allow operations on data from retrieving to changing it. Also be able to gain unauthorized access to the system being targeted. </p>
-                        </li>
-
-                        <li>
-                            <strong>Exploit 2: Broken Access Control/Cross Site Request Forgery (CSRF)</strong>
-
-                            <p>Access control in a web application ensures that each user type can access resources and actions within their intended permissions. A broken access control allows for horizontal, vertical or context-based privilege escalation that an attacker can exploit, giving them unauthorized ability to gather, modify or destroy data. </p>
-
-                            <p>A flaw in access control may allow an attacker to execute a <strong>Cross Site Request Forgery</strong> (CSRF). This attack targets other users by forcing them to perform action(s) unintentionally, and depending on the severity, grant the attacker privileges or control over the user’s account.</p>
-                        </li>
-
-                        <li>
-                            <strong>Exploit 3: Components with Known Vulnerabilities</strong>
-
-                            <p>When designing a program or website, programmers may use components in their site with known vulnerabilities. The programmer may or may not be aware of it, depending or not if they have done some research on the component they are using or if they were warned that the component has vulnerabilities. </p>
-                        </li>
-
-                    </ul>
-
+                    <h3>Section 1: Exploit Summary</h3>
                 </div>
 
-                <div>
-                    <strong>Operating System</strong>
+                <div className="report-list" >
+
+                    <div className="box">
+
+                        <p>There 4 different specific exploits that will be covered in this report. The exploits will be demonstrated on a web application. The vulnerabilities will be given a brief description in the following segment:</p>
+
+                        <u><strong>Brief Description</strong></u>
+                        <br />
+                        <br />
+                        <strong>Exploit 1: SQL injection</strong>
+
+                        <p>An injection attack specifically a SQL injection attack consists of malicious code that will expose a vulnerability capable of accessing the database layer of an application. SQL injection allows an attacker to spoof identity, allow operations on data from retrieving to changing it. Also be able to gain unauthorized access to the system being targeted. </p>
+
+                        <strong>Exploit 2: Broken Access Control/Cross Site Request Forgery (CSRF)</strong>
+
+                        <p>Access control in a web application ensures that each user type can access resources and actions within their intended permissions. A broken access control allows for horizontal, vertical or context-based privilege escalation that an attacker can exploit, giving them unauthorized ability to gather, modify or destroy data. </p>
+
+                        <p>A flaw in access control may allow an attacker to execute a <strong>Cross Site Request Forgery</strong> (CSRF). This attack targets other users by forcing them to perform action(s) unintentionally, and depending on the severity, grant the attacker privileges or control over the user’s account.</p>
+
+                        <strong>Exploit 3: Components with Known Vulnerabilities</strong>
+
+                        <p>When designing a program or website, programmers may use components in their site with known vulnerabilities. The programmer may or may not be aware of it, depending or not if they have done some research on the component they are using or if they were warned that the component has vulnerabilities. </p>
+                    </div>
+
+                </div >
+
+                <br />
+
+                <div className="box">
+
+                    <u><strong>Operating System</strong></u>
 
                     <p>All operating systems need some form of access controls for managing files or directories with different permissions types (read-only, read-and-write, execute, etc). Distributed OS, Batch OS, Time-Sharing OS, Hard and Soft Real-Time systems, and Network systems provide different and unique threats when it comes to failures in access control. Our topic of discussion focuses on web-application vulnerabilities, thus narrowing our focus towards systems that allow for web access is most relevant.</p>
 
@@ -54,8 +58,10 @@ class Report extends React.Component {
 
                 </div>
 
+                <br />
+
                 <div className="box">
-                    <strong>Protocals/Services/Applications</strong>
+                    <u><strong>Protocals/Services/Applications</strong></u>
 
                     <div className="report-list">
                         <ul>
@@ -103,8 +109,12 @@ class Report extends React.Component {
                     </div>
                 </div>
 
+                <br />
+
                 <div className="box">
-                    <strong>Varients</strong>
+                    <u><strong>Varients</strong></u>
+                    <br />
+                    <br />
 
                     <strong>Exploit 1: SQL injection</strong>
 
@@ -167,12 +177,14 @@ class Report extends React.Component {
                 </div>
 
 
-
-                <h3>Section 2: The Attack</h3>
+                <div className="report-header">
+                    <h3>Section 2: The Attack</h3>
+                </div>
 
                 <div className="box">
-                    <strong>Description and Network Diagram</strong>
-
+                    <u><strong>Description and Network Diagram</strong></u>
+                    <br />
+                    <br />
                     <strong>Exploit 1: SQL Injection</strong>
                     <br />
                     <img src={SQLPIC} />
@@ -187,9 +199,10 @@ class Report extends React.Component {
                     <p>In this diagram the attacker is finds a website they may have a vulnerability. Once a vulnerability is found he uses it to request a specific file and returns it to him. The attacker should not be able to access any file they want; the website and server should request his credentials and determine if he should have access to it. The vulnerable component let him by pass the authentication and authorization of the website and the attacker was able to freely download the file.</p>
                 </div>
 
+                <br />
 
                 <div className="box">
-                    <strong>Protocal/Service Description</strong>
+                    <u><strong>Protocal/Service Description</strong></u>
 
                     <p>For this exploit, we will be using Burp Suite as our tool for generating CSRF PoC (This feature is not available for the Community version). Burp Suite is a platform that intercepts and keeps a history of HTTP requests made by your browser, among other things. This feature will help us identify the source, the client, and the type of request being sent. </p>
 
@@ -200,9 +213,7 @@ class Report extends React.Component {
                     <img src={SQL_EX} />
 
                     <p>This SQL code is designed to pull up the records of the specified username from its table of users. However, if the "userName" variable is crafted in a specific way by a malicious user, the SQL statement may do more than the code author intended. For example, setting the "userName" variable as:  ' OR '1'='1' -- renders one of the following SQL statements by the parent language: SELECT * FROM users WHERE name = '' OR '1'='1' -- '; If this code were to be used in an authentication procedure then this example could be used to force the selection of every data field (*) from all users rather than from one specific user name as the coder intended, because the evaluation of '1'='1' is always true.</p>
-                </div>
 
-                <div className="box">
                     <strong>Exploit 2: Broken Access Control/Cross Site Request Forgery (CSRF)</strong>
 
                     <p>Reconnaissance</p>
@@ -221,9 +232,6 @@ class Report extends React.Component {
 
                     <img src={SCAN_EX2} />
 
-                </div>
-
-                <div className="box">
 
                     <strong>Exploit 3: Components with Known Vulnerabilities</strong>
 
@@ -232,9 +240,12 @@ class Report extends React.Component {
                     <p>The attacker can identify libraries or a framework that has a vulnerability. IF the component is deep inside the application then it becomes harder for the attacker to identify. To insure you find components it is easier to keep them at the top layer of the App. If the attacker gains access to a component it may give him access to more attacks such as SQL injections.</p>
                 </div>
 
+                <br />
+
                 <div className="box">
 
-                    <strong>Signature of the attack</strong>
+                    <u><strong>Signature of the attack</strong></u>
+                    <br />
                     <br />
                     <strong>Exploit 3: Components with Known Vulnerabilities</strong>
 
@@ -244,8 +255,11 @@ class Report extends React.Component {
 
                 </div>
 
+                <br />
+
                 <div className="box">
-                    <strong>How to protect against it</strong>
+                    <u><strong>How to protect against it</strong></u>
+                    <br />
                     <br />
                     <strong>Explot 1: SQL Injection</strong>
 
@@ -266,7 +280,9 @@ class Report extends React.Component {
                     <p>As a user, keep your device up to date and ensure the software you are using is up to date. As a programmer ensure that the code you are using is not have known vulnerabilities, if so send out a patch as soon as possible to ensure users are safe.</p>
                 </div>
 
-                <h3>Section 3: Security Policy</h3>
+                <div className="report-header">
+                    <h3>Section 3: Security Policy</h3>
+                </div>
 
                 <div className="box">
 
@@ -317,7 +333,7 @@ class Report extends React.Component {
 
                 </div>
 
-            </div>
+            </div >
 
         );
     }

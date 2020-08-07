@@ -1,3 +1,72 @@
 .App {
   text-align: center;
 }
+
+.header-body{
+  margin: auto;
+  overflow: hidden;
+  background-color:rgb(0, 38, 87);
+  color: white;
+  width: 100%;
+  top: 0;
+}
+
+
+.header-nav{
+  background-color: black;
+  color:white;
+}
+
+.header-nav ul{
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  margin: 0 auto;
+}
+
+.header-nav ul li{
+  font-size: 1em;
+  text-align: center;
+  margin: 0;
+  float: left;
+  display: block;
+  color: white;
+  transition: 0.5s;
+  text-decoration: none;
+  padding: 10px 0;
+  box-sizing: border-box;
+  border-right: 1px solid grey;
+  
+}
+
+.header-nav ul li button{
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  height: 0;
+  top: 0;
+  text-decoration: none;
+}
+
+.header-nav ul li:last-child{
+  border-right: none;
+}
+
+.header-nav ul li:hover{
+  background: #d5d9db;
+}
+
+.header-nav ul li .links{
+  padding: 10px 100px;
+  
+}
+
+.links{
+  text-decoration: none;
+  color: white;
+}
+
+.links:hover{
+  text-decoration: none;
+}

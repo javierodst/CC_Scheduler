@@ -30,10 +30,6 @@ class Home extends React.Component {
                     width="302px"
                     onDayClick={(e, day) => this.onDayClick(e, day)} />
 
-                <button onClick={() => {
-                    this.props.history.push("/report")
-                }}>Report</button>
-
             </div>
         );
     }
